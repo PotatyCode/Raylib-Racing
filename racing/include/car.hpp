@@ -2,7 +2,13 @@
 #include "../../core/include/entity.hpp"
 #include "CockpitCamera.hpp"
 #include "carMove.hpp"
-class car : entity {
+class car : private entity {
+  private:
     carCamera mainCam;
-    carMovement carMovment;
+    carMovement carMovement;
+
+  public:
+    virtual void update();
+    virtual void render();
+    car();
 };

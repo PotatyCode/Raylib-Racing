@@ -1,11 +1,12 @@
 #pragma once
 #include "entity.hpp"
+#include <memory>
 class component {
   private:
-    entity& Parent;
+    entity* Parent;
 
   public:
-    component(entity& _Parent) : Parent(_Parent) {};
+    component(entity* _Parent) : Parent(_Parent) {};
     virtual void update() = 0;
-    entity& getParent() { return Parent; }
+    entity* getParent() { return Parent; }
 };
