@@ -1,6 +1,5 @@
 #pragma once
 #include "entity.hpp"
-#include <raylib.h>
 class component {
   private:
     entity& Parent;
@@ -8,4 +7,5 @@ class component {
   public:
     component(entity& _Parent) : Parent(_Parent) {};
     virtual void update() = 0;
+    entity& getParent() { return Parent; }
 };

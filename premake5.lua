@@ -36,6 +36,7 @@ project "RacingGame"
     {
         "core/include",
         "game/include",
+        "vendor/raylib-cpp/include",
         "%{IncludeDirs.raylib}"
     }
 
