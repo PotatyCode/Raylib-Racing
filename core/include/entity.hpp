@@ -11,13 +11,15 @@ class entity {
     uint32_t id;
     std::vector<std::unique_ptr<component>> runtimeComponents;
     Transform transform;
+    raylib::Model model;
+    raylib::Texture2D texture;
 
   public:
     auto getId() const { return id; }
     raylib::Quaternion getRotation() { return transform.rotation; }
     raylib::Vector3 getPosition() { return transform.translation; }
     raylib::Vector3 getScale() { return transform.scale; }
-    std::vector<std::unique_ptr<component>> getRunTimeComponents() { return runtimeComponents; }
+    std::vector<std::unique_ptr<component>>& getRunTimeComponents() { return runtimeComponents; }
 
     void setRotation(raylib::Quaternion newRotation) { transform.rotation = newRotation; }
     void setPosition(raylib::Vector3 newPosition) { transform.translation = newPosition; }
