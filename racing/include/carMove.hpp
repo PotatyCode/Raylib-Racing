@@ -15,30 +15,23 @@ class carMovement : component {
   public:
     virtual void update() {
         KeyboardKey keyPressed = inputSys::getKeyInput();
-        switch (keyPressed) {
-            default:
-                break;
-            case KEY_W: {
-                speed += ACCEL * GetFrameTime();
-                break;
-            }
-            case KEY_S: {
-                speed -= DEACCEL * GetFrameTime();
-                break;
-            }
-            case KEY_E: {
-                float turnSpeed = (BASE_TURN * (speed / MAX_SPEED)) * GetFrameTime();
-                Quaternion turnRotation = QuaternionFromAxisAngle(raylib::Vector3{0, 1, 0}, turnSpeed);
-                getParent().setRotation(QuaternionMultiply(getParent().getRotation(), turnRotation));
-                break;
-            }
-            case KEY_D: {
-                float turnSpeed = -BASE_TURN * (speed / MAX_SPEED) * GetFrameTime();
-                Quaternion turnRotation = QuaternionFromAxisAngle(raylib::Vector3{0, 1, 0}, turnSpeed);
-                getParent().setRotation(QuaternionMultiply(getParent().getRotation(), turnRotation));
-                break;
-            }
+        if (IsKeyDown(KEY_W)) {
+            speed += ACCEL * GetFrameTime();
         }
+        if (IsKeyDown(KEY_S)) {
+            speed -= DEACCEL * GetFrameTime();
+        }
+        if (IsKeyDown(KEY_A)) {
+            float turnSpeed = (BASE_TURN * (speed / MAX_SPEED)) * GetFrameTime();
+            Quaternion turnRotation = QuaternionFromAxisAngle(raylib::Vector3{0, 1, 0}, turnSpeed);
+            getParent().setRotation(QuaternionMultiply(getParent().getRotation(), turnRotation));
+        }
+        if (IsKeyDown(KEY_D)) {
+            float turnSpeed = -BASE_TURN * (speed / MAX_SPEED) * GetFrameTime();
+            Quaternion turnRotation = QuaternionFromAxisAngle(raylib::Vector3{0, 1, 0}, turnSpeed);
+            getParent().setRotation(QuaternionMultiply(getParent().getRotation(), turnRotation));
+        }
+
         speed *= FRICTION;
         speed = Clamp(speed, -MAX_SPEED * 0.5f, MAX_SPEED);
         forward = Vector3RotateByQuaternion({0, 0, 1}, getParent().getRotation());
