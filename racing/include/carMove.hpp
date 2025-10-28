@@ -27,15 +27,17 @@ class carMovement : component {
             }
             case KEY_E: {
                 float turnSpeed = (BASE_TURN * (speed / MAX_SPEED)) * GetFrameTime();
-                Quaternion turnRotation = QuaternionFromAxisAngle(raylib::Vector3{0, 1, 0}, turnSpeed * GetFrameTime());
+                Quaternion turnRotation = QuaternionFromAxisAngle(raylib::Vector3{0, 1, 0}, turnSpeed);
                 getParent().setRotation(QuaternionMultiply(getParent().getRotation(), turnRotation));
                 forward = Vector3RotateByQuaternion({0, 0, 1}, getParent().getRotation());
+                break;
             }
             case KEY_D: {
                 float turnSpeed = -BASE_TURN * (speed / MAX_SPEED) * GetFrameTime();
-                Quaternion turnRotation = QuaternionFromAxisAngle(raylib::Vector3{0, 1, 0}, turnSpeed * GetFrameTime());
+                Quaternion turnRotation = QuaternionFromAxisAngle(raylib::Vector3{0, 1, 0}, turnSpeed);
                 getParent().setRotation(QuaternionMultiply(getParent().getRotation(), turnRotation));
                 forward = Vector3RotateByQuaternion({0, 0, 1}, getParent().getRotation());
+                break;
             }
         }
         Vector3 velocity = Vector3Scale(Vector3Scale(forward, speed), GetFrameTime());
