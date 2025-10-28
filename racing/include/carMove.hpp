@@ -1,5 +1,5 @@
+#pragma once
 #include "../../core/include/Component.hpp"
-#include "../../core/src/inputSys.cpp"
 #include "../../vendor/raylib-cpp/include/raylib-cpp.hpp"
 #include <raylib.h>
 #include <raymath.h>
@@ -13,6 +13,7 @@ class carMovement : component {
     float speed = 0.0f;
 
   public:
-    virtual void update();
-    carMovement(entity* _Parent) : component(_Parent) {}
+    void update() override;
+    explicit carMovement(entity* Parent) : component(Parent) {}
+    ~carMovement() override = default;
 };

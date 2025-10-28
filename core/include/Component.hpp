@@ -6,7 +6,8 @@ class component {
     entity* Parent;
 
   public:
-    component(entity* _Parent) : Parent(_Parent) {};
+    explicit component(entity* Parent) : Parent(Parent) {};
     virtual void update() = 0;
-    entity* getParent() { return Parent; }
+    entity* getParent() const { return Parent; }
+    virtual ~component() = default;
 };

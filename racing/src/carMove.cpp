@@ -1,7 +1,6 @@
 #include "../include/carMove.hpp"
 
 void carMovement::update() {
-    KeyboardKey keyPressed = inputSys::getKeyInput();
     if (IsKeyDown(KEY_W)) {
         speed += ACCEL * GetFrameTime();
     }

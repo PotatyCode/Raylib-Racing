@@ -13,7 +13,7 @@ class entity {
     Transform transform;
 
   public:
-    int getId() { return id; }
+    auto getId() const { return id; }
     raylib::Quaternion getRotation() { return transform.rotation; }
     raylib::Vector3 getPosition() { return transform.translation; }
     raylib::Vector3 getScale() { return transform.scale; }
@@ -32,4 +32,5 @@ class entity {
     virtual void render() = 0;
 
     entity() {}
+    virtual ~entity() = default;
 };

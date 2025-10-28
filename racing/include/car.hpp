@@ -1,4 +1,4 @@
-
+#pragma once
 #include "../../core/include/entity.hpp"
 #include "CockpitCamera.hpp"
 #include "carMove.hpp"
@@ -8,7 +8,8 @@ class car : private entity {
     carMovement carMovement;
 
   public:
-    virtual void update();
-    virtual void render();
+    void update() override;
+    void render() override;
     car();
+    ~car() override = default;
 };
