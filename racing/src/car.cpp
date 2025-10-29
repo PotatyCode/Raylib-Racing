@@ -1,12 +1,14 @@
 #include "../include/car.hpp"
+#include <cstdint>
 #include <raylib.h>
 
-car::car() : carMovement(this), mainCam(this) {
-    setModel("../../assets/chevy/Chevrolet Camaro.fbx");
-    setTexture("../../assets/chevy/Render.png");
+car::car(uint32_t id) : movement(this), mainCam(this), entity(id) {
+    model = LoadModel("~/RacingGame/assets/chevy/ChevroletCamero.glb");
+    model = LoadModel("~/RacingGame/assets/chevy/Render.png");
+    texture = LoadTexture("../../assets/chevy/Render.png");
 }
 void car::update() {
-    carMovement.update();
+    movement.update();
     mainCam.update();
     for (auto& component : getRunTimeComponents()) {
         component->update();

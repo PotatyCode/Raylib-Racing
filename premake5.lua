@@ -22,14 +22,16 @@ project "RacingGame"
     
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
-
+    warnings "Default"
     files 
     { 
         "src/main.cpp",
         "game/src/**.cpp",
         "core/src/**.cpp",
         "game/include/**.hpp",
-        "core/include/**.hpp"
+        "core/include/**.hpp",
+        "racing/include/**.hpp",
+        "racing/src/**.cpp",
     }
 
     includedirs
@@ -101,7 +103,10 @@ project "RacingGame"
             "-flto",
             "-ffast-math",
             "-funroll-loops",
-            "-fomit-frame-pointer"
+            "-fomit-frame-pointer",
+            "-fdiagnostics-color=always",
+            "-fno-elide-type",
+
         }
         linkoptions {
             "-flto",

@@ -2,14 +2,18 @@
 #include "../../core/include/entity.hpp"
 #include "CockpitCamera.hpp"
 #include "carMove.hpp"
-class car : private entity {
+#include <cstdint>
+#include <raylib.h>
+#include <sys/types.h>
+class car : public entity {
   private:
     carCamera mainCam;
-    carMovement carMovement;
+    carMovement movement;
 
   public:
     void update() override;
     void render() override;
-    car();
+    const carCamera& getCamera() { return mainCam; }
+    car(uint32_t id);
     ~car() override = default;
 };
