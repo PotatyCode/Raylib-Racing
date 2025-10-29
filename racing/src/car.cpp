@@ -2,8 +2,8 @@
 #include <raylib.h>
 
 car::car() : carMovement(this), mainCam(this) {
-    model = LoadModel("../../assets/chevy/Chevrolet Camaro.fbx");
-    texture = LoadTexture("../../assets/chevy/Render.png")
+    setModel("../../assets/chevy/Chevrolet Camaro.fbx");
+    setTexture("../../assets/chevy/Render.png");
 }
 void car::update() {
     carMovement.update();
@@ -12,4 +12,6 @@ void car::update() {
         component->update();
     }
 }
-void car::render() {}
+void car::render() {
+    DrawModel(getModel(), getPosition(), 1, WHITE);
+}

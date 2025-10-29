@@ -20,6 +20,8 @@ class entity {
     raylib::Vector3 getPosition() { return transform.translation; }
     raylib::Vector3 getScale() { return transform.scale; }
     std::vector<std::unique_ptr<component>>& getRunTimeComponents() { return runtimeComponents; }
+    raylib::Model getModel() { return model; }
+    raylib::Texture getTexture() { return texture; }
 
     void setRotation(raylib::Quaternion newRotation) { transform.rotation = newRotation; }
     void setPosition(raylib::Vector3 newPosition) { transform.translation = newPosition; }
@@ -28,6 +30,8 @@ class entity {
     void addComponent(Args&&... args) {
         runtimeComponents.emplace_back(std::make_unique<T>);
     }
+    void setModel(std::string filepath) { model = LoadModel(filepath.c_str()); }
+    void setTexture(std::string filepath) { texture = LoadTexture(filepath.c_str()); }
 
 
     virtual void update() = 0;
