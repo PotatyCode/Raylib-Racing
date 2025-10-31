@@ -1,5 +1,6 @@
 #include "../include/carMove.hpp"
 #include <raylib.h>
+#include <raymath.h>
 
 void carMovement::update() {
     auto dt = GetFrameTime();
@@ -14,16 +15,15 @@ void carMovement::update() {
 
     float turnAmount = 0.0f;
     if (IsKeyDown(KEY_A)) {
-        float turnAmount = (BASE_TURN * (speed / MAX_SPEED)) * dt;
+        turnAmount = BASE_TURN * dt;
     }
     if (IsKeyDown(KEY_D)) {
-        float turnAmount = -BASE_TURN * (speed / MAX_SPEED) * dt;
+        turnAmount = -BASE_TURN * dt;
     }
-    if (turnAmount != 0) {
-        Quaternion turnRotation = QuaternionFromAxisAngle({0, 1, 0}, turnAmount);
-        getParent()->setRotation(QuaternionMultiply(getParent()->getRotation(), turnRotation));
-    }
+    Quaternion turnRotation = QuaternionFromAxisAngle({0, 1, 0}, turnAmount);
+    getParent()->setRotation(QuaternionMultiply(turnRotation, getParent()->getRotation()));
+    Vector3 forward;
     forward = Vector3RotateByQuaternion({0, 0, 1}, getParent()->getRotation());
-    Vector3 velocity = Vector3Scale(forward, speed * GetFrameTime());
+    Vector3 velocity = Vector3Scale(forward, speed * dt);
     getParent()->setPosition(Vector3Add(velocity, getParent()->getPosition()));
 }

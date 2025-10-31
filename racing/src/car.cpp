@@ -1,6 +1,7 @@
 #include "../include/car.hpp"
 #include <cstdint>
 #include <raylib.h>
+#include <raymath.h>
 
 car::car(uint32_t id) : movement(this), mainCam(this), entity(id) {
     model.Load("assets/chevy/ChevroletCamero.glb");
@@ -14,7 +15,10 @@ void car::update() {
     }
 }
 void car::render() {
-    DrawModelEx(model, getPosition(), {getRotation().x, getRotation().y, getRotation().z}, getRotation().w, getScale(), WHITE);
+    Vector3 axis;
+    float angle;
+    QuaternionToAxisAngle(getRotation(), &axis, &angle);
+    DrawModelEx(model, getPosition(), axis, angle, getScale(), WHITE);
 }
 car::~car() {
     model.Unload();

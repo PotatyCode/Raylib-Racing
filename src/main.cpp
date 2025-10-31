@@ -20,9 +20,12 @@ int main() {
 
         BeginMode3D(testCam);
         player.render();
-        DrawGrid(10, 10);
+        DrawPlane({0, 0, 0}, {100.100}, WHITE);
         EndMode3D();
+
         DrawFPS(10, 10);
+        DrawText(TextFormat("Position x:%.2f ", player.getPosition().x), 10, 30, 20, WHITE);
+        DrawText(TextFormat("Cam Position x:%.2f ", player.getCamera().GetPosition().x), 10, 60, 20, WHITE);
         EndDrawing();
     }
 }
