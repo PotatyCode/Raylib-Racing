@@ -13,6 +13,7 @@ int main() {
     testCam.fovy = 45.0f;                              // Camera field-of-view Y
     testCam.projection = CAMERA_PERSPECTIVE;
 
+    rlDisableBackfaceCulling();
     while (!WindowShouldClose()) {
         player.update();
         BeginDrawing();
@@ -20,12 +21,17 @@ int main() {
 
         BeginMode3D(testCam);
         player.render();
-        DrawPlane({0, 0, 0}, {100.100}, WHITE);
+        DrawGrid(10, 1);
         EndMode3D();
 
         DrawFPS(10, 10);
         DrawText(TextFormat("Position x:%.2f ", player.getPosition().x), 10, 30, 20, WHITE);
         DrawText(TextFormat("Cam Position x:%.2f ", player.getCamera().GetPosition().x), 10, 60, 20, WHITE);
+
+
+        DrawText(TextFormat("Direction x:%.2f ", player.getDirection()), 10, 90, 20, WHITE);
+
         EndDrawing();
     }
+    rlEnableBackfaceCulling();
 }

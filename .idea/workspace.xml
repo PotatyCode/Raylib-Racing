@@ -7,9 +7,9 @@
     <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="4" type="long" />
     <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
   </component>
-  <component name="CMakePresetLoader"><![CDATA[{
-  "useNewFormat": true
-}]]></component>
+  <component name="CMakePresetLoader">{
+  &quot;useNewFormat&quot;: true
+}</component>
   <component name="CMakeProjectFlavorService">
     <option name="flavorId" value="CMakePlainProjectFlavor" />
   </component>
@@ -28,17 +28,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e3bcab2f-6125-43d5-ab51-7d9b89515b43" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/RacingGame.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/RacingGame.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/include/Component.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/core/include/Component.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin-int/Debug-linux-x86_64/RacingGame/car.o" beforeDir="false" afterPath="$PROJECT_DIR$/bin-int/Debug-linux-x86_64/RacingGame/car.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin-int/Debug-linux-x86_64/RacingGame/carMove.o" beforeDir="false" afterPath="$PROJECT_DIR$/bin-int/Debug-linux-x86_64/RacingGame/carMove.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin-int/Debug-linux-x86_64/RacingGame/main.o" beforeDir="false" afterPath="$PROJECT_DIR$/bin-int/Debug-linux-x86_64/RacingGame/main.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug-linux-x86_64/RacingGame/RacingGame" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug-linux-x86_64/RacingGame/RacingGame" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/include/entity.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/core/include/entity.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/inputSys.cpp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/racing/include/CockpitCamera.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/racing/include/CockpitCamera.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/racing/include/car.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/racing/include/car.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/racing/include/carMove.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/racing/include/carMove.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/racing/src/car.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/racing/src/car.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/racing/src/carMove.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/racing/src/carMove.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,9 +84,10 @@
     "RunOnceActivity.cidr.known.project.marker": "true",
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "RunOnceActivity.west.config.association.type.startup.service": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "fixingMovement",
     "last_opened_file_path": "/home/potatyman/RacingGame",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -97,12 +99,12 @@
   }
 }]]></component>
   <component name="RunManager">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+    <configuration name="RacingGame" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="RacingGame" TARGET_NAME="RacingGame" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="RacingGame" RUN_TARGET_NAME="RacingGame">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RacingGame" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="RacingGame" TARGET_NAME="RacingGame" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="RacingGame" RUN_TARGET_NAME="RacingGame">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -117,6 +119,7 @@
       <updated>1761647373246</updated>
       <workItem from="1761647376349" duration="700000" />
       <workItem from="1761652099677" duration="1833000" />
+      <workItem from="1761911985485" duration="1618000" />
     </task>
     <servers />
   </component>

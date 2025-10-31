@@ -13,17 +13,15 @@ void carMovement::update() {
     speed *= pow(FRICTION, dt * 60.0f);
     speed = Clamp(speed, -MAX_SPEED * 0.5f, MAX_SPEED);
 
-    float turnAmount = 0.0f;
     if (IsKeyDown(KEY_A)) {
-        turnAmount = BASE_TURN * dt;
+        getParent()->setDirection(getParent()->getDirection() + BASE_TURN * dt);
     }
     if (IsKeyDown(KEY_D)) {
-        turnAmount = -BASE_TURN * dt;
+        getParent()->setDirection(getParent()->getDirection() - BASE_TURN * dt);
     }
-    Quaternion turnRotation = QuaternionFromAxisAngle({0, 1, 0}, turnAmount);
-    getParent()->setRotation(QuaternionMultiply(turnRotation, getParent()->getRotation()));
-    Vector3 forward;
-    forward = Vector3RotateByQuaternion({0, 0, 1}, getParent()->getRotation());
-    Vector3 velocity = Vector3Scale(forward, speed * dt);
-    getParent()->setPosition(Vector3Add(velocity, getParent()->getPosition()));
+    auto rotationMatrix = raylib::Matrix::RotateY(getParent()->getDirection());
+    raylib::Vector3 velocity = Vector3Transform({0, 0, 1}, rotationMatrix);
+    velocity = velocity.Scale(speed * dt);
+    raylib::Vector3 newPos = getParent()->getPosition() + velocity;
+    getParent()->setPosition(newPos);
 }
