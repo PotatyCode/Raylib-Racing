@@ -21,16 +21,14 @@ int main() {
 
         BeginMode3D(testCam);
         player.render();
-        DrawGrid(10, 1);
+        DrawPlane({0, 0, 0}, {100, 100}, WHITE);
+        DrawCube({0, 0, 10}, 5, 5, 4, RED);
         EndMode3D();
 
         DrawFPS(10, 10);
-        DrawText(TextFormat("Position x:%.2f ", player.getPosition().x), 10, 30, 20, WHITE);
-        DrawText(TextFormat("Cam Position x:%.2f ", player.getCamera().GetPosition().x), 10, 60, 20, WHITE);
-
-
-        DrawText(TextFormat("Direction x:%.2f ", player.getDirection()), 10, 90, 20, WHITE);
-
+        DrawText(TextFormat("Target x:%.2f ", player.getCamera().GetTarget().x), 10, 90, 20, GREEN);
+        DrawText(TextFormat("Target y:%.2f ", player.getCamera().GetTarget().y), 10, 120, 20, GREEN);
+        DrawText(TextFormat("Target z:%.2f ", player.getCamera().GetTarget().z), 10, 150, 20, GREEN);
         EndDrawing();
     }
     rlEnableBackfaceCulling();

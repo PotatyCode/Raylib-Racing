@@ -8,11 +8,11 @@ class carCamera : component, public raylib::Camera3D {
 
   public:
     void update() override {
-        position = Vector3Add(getParent()->getPosition(), {0.0f, 100.0f, 5.0f}); // car position + offset
+        position = Vector3Add(getParent()->getPosition(), {0.0f, 10.0f, 5.0f}); // car position + offset
         up = {0.0f, 1.0f, 0.0f};
         target.x = position.x + sin(getParent()->getDirection()) * 10.0f;
-        target.y = position.y + 2.0f;
-        target.z + position.z + cos(getParent()->getDirection()) * 10.0f;
+        target.y = position.y - 2.0f;
+        target.z = position.z + cos(getParent()->getDirection()) * 10.0f;
         fovy = 45.0f;
         projection = CAMERA_PERSPECTIVE;
     }

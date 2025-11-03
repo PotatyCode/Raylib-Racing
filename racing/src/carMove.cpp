@@ -5,10 +5,10 @@
 void carMovement::update() {
     auto dt = GetFrameTime();
     if (IsKeyDown(KEY_W)) {
-        speed += ACCEL * dt;
+        speed -= ACCEL * dt;
     }
     if (IsKeyDown(KEY_S)) {
-        speed -= DEACCEL * dt;
+        speed += DEACCEL * dt;
     }
     speed *= pow(FRICTION, dt * 60.0f);
     speed = Clamp(speed, -MAX_SPEED * 0.5f, MAX_SPEED);

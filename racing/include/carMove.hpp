@@ -6,7 +6,7 @@
 class carMovement : component {
     const float pi = 3.14159;
     const float MAX_SPEED = 30.0f;
-    const float ACCEL = 10.0f;
+    const float ACCEL = 30.0f;
     const float DEACCEL = 15.0f;
     const float BASE_TURN = pi / 2;
     const float FRICTION = 0.95f;
