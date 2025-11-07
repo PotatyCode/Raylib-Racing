@@ -11,6 +11,7 @@ class game : coreGame {
         coreGame::render();
         player.render();
     }
+
     game() : player(0) { enviroment.Load("assets/track/Taas+circuit.obj"); }
     void run() {
         while (!WindowShouldClose()) {
