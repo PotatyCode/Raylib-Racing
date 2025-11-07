@@ -5,7 +5,7 @@
 void carMovement::update() {
     auto dt = GetFrameTime();
     if (IsKeyDown(KEY_W)) {
-        speed -= ACCEL * dt;
+        speed += ACCEL * dt;
     }
     if (IsKeyDown(KEY_S)) {
         speed += DEACCEL * dt;
