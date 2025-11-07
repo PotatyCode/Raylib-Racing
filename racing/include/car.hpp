@@ -16,5 +16,4 @@ class car : public entity {
     const carCamera& getCamera() { return mainCam; }
     void loadModel();
     car(uint32_t id);
-    ~car() override;
 };

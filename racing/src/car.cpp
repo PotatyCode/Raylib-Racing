@@ -20,7 +20,3 @@ void car::update() {
 void car::render() {
     DrawModelEx(model, getPosition(), {0, 1, 0}, getDirection() * 180 / 3.14159, {1, 1, 1}, WHITE);
 }
-car::~car() {
-    UnloadModel(model);
-    texture.Unload();
-}
