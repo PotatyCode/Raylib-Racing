@@ -3,8 +3,10 @@
 #include <iostream>
 #include <raylib.h>
 #include <raymath.h>
-car::car() : movement(this), mainCam(this) {
-    model.Load("assets/chevy/chevroletCamero.obj");
+car::car(uint32_t id) : entity(id), movement(this), mainCam(this) {
+    std::cout << "Loading Model\n";
+    model = LoadModel("assets/chevy/chevroletCamero.obj");
+    std::cout << "Model Loaded\n";
     model.materials[0].maps[MATERIAL_MAP_DIFFUSE].texture = texture;
     boundingBox = GetModelBoundingBox(model);
 }
@@ -16,10 +18,9 @@ void car::update() {
     }
 }
 void car::render() {
-    model.Draw(getPosition(), {0, 1, 0}, getDirection() * 180 / 3.14159, {1, 1, 1}, WHITE);
-    getBoundingBox().Draw();
+    DrawModelEx(model, getPosition(), {0, 1, 0}, getDirection() * 180 / 3.14159, {1, 1, 1}, WHITE);
 }
 car::~car() {
-    model.Unload();
+    UnloadModel(model);
     texture.Unload();
 }

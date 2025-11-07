@@ -11,18 +11,16 @@ class game : coreGame {
         coreGame::render();
         player.render();
     }
-    game() {
-        init();
-        enviroment.Load("assets/track/Taas+circuit.obj");
-    }
+    game() : player(0) { enviroment.Load("assets/track/Taas+circuit.obj"); }
     void run() {
         while (!WindowShouldClose()) {
             update();
 
             BeginDrawing();
+            ClearBackground(BLACK);
             BeginMode3D(player.getCamera());
 
-            render();
+            player.render();
 
             EndMode3D();
             EndDrawing();
