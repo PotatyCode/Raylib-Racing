@@ -1,9 +1,9 @@
 #include "../include/car.hpp"
 #include <cstdint>
+#include <iostream>
 #include <raylib.h>
 #include <raymath.h>
-
-car::car(uint32_t id) : movement(this), mainCam(this), entity(id) {
+car::car() : movement(this), mainCam(this) {
     model.Load("assets/chevy/chevroletCamero.obj");
     model.materials[0].maps[MATERIAL_MAP_DIFFUSE].texture = texture;
     boundingBox = GetModelBoundingBox(model);

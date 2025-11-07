@@ -1,6 +1,6 @@
 # Blender 4.5.3 LTS
 # www.blender.org
-mtllib uploads_files_4992551_Taas+circuit.mtl
+mtllib Taas+circuit.mtl
 o track
 v -3.091839 -0.069863 52.822533
 v 5.121632 -0.069863 52.822510

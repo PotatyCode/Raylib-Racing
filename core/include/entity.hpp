@@ -9,7 +9,7 @@
 class component;
 class entity {
   protected:
-    const uint32_t id;
+    // const uint32_t id;
     std::vector<std::unique_ptr<component>> runtimeComponents;
     raylib::Vector3 position;
     raylib::Vector3 scale;
@@ -19,7 +19,7 @@ class entity {
     raylib::BoundingBox boundingBox;
 
   public:
-    auto getId() const { return id; }
+    // auto getId() const { return id; }
     const float& getDirection() const { return direction; }
     const raylib::Vector3& getPosition() const { return position; }
     const raylib::Vector3& getScale() const { return scale; }
@@ -40,7 +40,7 @@ class entity {
     virtual void update() = 0;
     virtual void render() = 0;
 
-    explicit entity(uint32_t id) : id(id), direction(0.0f), position(0.0f), scale(1.0f) {}
+    explicit entity() : direction(0.0f), position(0.0f), scale(1.0f) {}
     virtual ~entity() {
         model.Unload();
         texture.Unload();
