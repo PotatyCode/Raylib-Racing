@@ -13,25 +13,34 @@ class game : coreGame {
         player.render();
     }
 
-    game() : player(0) { std::cout << "env Loaded"; }
+    game() : player(0) {
+        coreGame::enviroment.Load("assets/track/Taas+circuit.obj");
+        raylib::Texture2D envTex = LoadTexture("assets/track/color.png");
+        SetMaterialTexture(&enviroment.materials[0], MATERIAL_MAP_DIFFUSE, envTex);
+        std::cout << "env Loaded";
+    }
     void run() {
+        SetTargetFPS(100);
         Camera camera = {0};
-        camera.position = (Vector3){50.0f, 50.0f, 50.0f}; // Camera position
-        camera.target = (Vector3){0.0f, 10.0f, 0.0f};     // Camera looking at point
-        camera.up = (Vector3){0.0f, 1.0f, 0.0f};          // Camera up vector (rotation towards target)
-        camera.fovy = 45.0f;                              // Camera field-of-view Y
-        camera.projection = CAMERA_PERSPECTIVE;           // Camera mode type
+        camera.position = (Vector3){50.0f, 500.0f, 50.0f}; // Camera position
+        camera.target = (Vector3){0.0f, 10.0f, 0.0f};      // Camera looking at point
+        camera.up = (Vector3){0.0f, 1.0f, 0.0f};           // Camera up vector (rotation towards target)
+        camera.fovy = 45.0f;                               // Camera field-of-view Y
+        camera.projection = CAMERA_PERSPECTIVE;            // Camera mode type
         while (!WindowShouldClose()) {
             player.update();
 
             BeginDrawing();
-            ClearBackground(BLACK);
-            BeginMode3D(camera);
+            ClearBackground(RAYWHITE);
+            BeginMode3D(player.getCamera());
 
             player.render();
+            DrawModel(enviroment, {0, 9, 0}, 1, GREEN);
 
             EndMode3D();
+            DrawFPS(10, 10);
             EndDrawing();
         }
     }
+    ~game() { enviroment.Unload(); }
 };
