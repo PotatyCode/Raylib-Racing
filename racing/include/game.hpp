@@ -1,5 +1,5 @@
+#pragma once
 #include "../../core/include/Coregame.hpp"
-#include "../../core/include/entity.hpp"
 #include "../../racing/include/car.hpp"
 #include <iostream>
 #include <raylib.h>
@@ -39,6 +39,7 @@ class game : coreGame {
 
             EndMode3D();
             DrawFPS(10, 10);
+            DrawText(TextFormat("Speed:%0.2f", player.getMovement().getSpeed()), 10, 40, 20, GREEN);
             EndDrawing();
         }
     }
