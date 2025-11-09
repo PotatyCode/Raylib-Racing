@@ -14,9 +14,7 @@ class game : coreGame {
     }
 
     game() : player(0) {
-        coreGame::enviroment.Load("assets/track/Taas+circuit.obj");
-        raylib::Texture2D envTex = LoadTexture("assets/track/color.png");
-        SetMaterialTexture(&enviroment.materials[0], MATERIAL_MAP_DIFFUSE, envTex);
+        coreGame::enviroment.Load("assets/track/Taas+circuit.glb");
         std::cout << "env Loaded";
     }
     void run() {
@@ -29,13 +27,15 @@ class game : coreGame {
         camera.projection = CAMERA_PERSPECTIVE;            // Camera mode type
         while (!WindowShouldClose()) {
             player.update();
+            auto envBox = enviroment.GetBoundingBox();
 
             BeginDrawing();
             ClearBackground(RAYWHITE);
             BeginMode3D(player.getCamera());
 
             player.render();
-            DrawModel(enviroment, {0, 9, 0}, 1, GREEN);
+            DrawModel(enviroment, {0, 15, 0}, 1, GRAY);
+            DrawBoundingBox(envBox, BLUE);
 
             EndMode3D();
             DrawFPS(10, 10);

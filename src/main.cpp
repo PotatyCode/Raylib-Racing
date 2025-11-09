@@ -2,7 +2,7 @@
 #include <iostream>
 #include <raylib.h>
 int main() {
-    InitWindow(1920 / 2, 1080 / 2, "Racing Game");
+    InitWindow(2048, 1152, "Racing Game");
     std::cout << "Windows Initialised";
     game Game;
     std::cout << "Game constructed";
